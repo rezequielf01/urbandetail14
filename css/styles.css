@@ -661,13 +661,16 @@ body {
     transform: scale(1);
   }
 
+  .hero-content{
+    top: 45%;
+  }
+
   .hero-content h2, .hero-content h3{
     font-size: 2rem;
   }
 
   .hero-content p{
     width: 80%;
-    top: 45%;
   }
 }
 
