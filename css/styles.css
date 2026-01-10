@@ -648,7 +648,7 @@ body {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .logo-text {
     display: none;
   }
@@ -659,6 +659,14 @@ body {
 
   .pricing-card-popular {
     transform: scale(1);
+  }
+
+  .hero-content h2, .hero-content h3{
+    font-size: 2rem;
+  }
+
+  .hero-content p{
+    width: 80%;
   }
 }
 
