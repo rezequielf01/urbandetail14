@@ -54,3 +54,30 @@ window.addEventListener("scroll", () => {
     header.style.boxShadow = "none"
   }
 })
+
+
+const swiper = new Swiper('.services-swiper', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    centeredSlides: true,
+    speed: 800,
+    
+
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    breakpoints: {
+        0: { slidesPerView: 1.2 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+    }
+});

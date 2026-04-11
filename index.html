@@ -6,6 +6,7 @@
     <title>Urban Details - Car Detailing Premium</title>
     <meta name="description" content="Especialistas en car detailing premium. Tu vehículo merece la mejor atención.">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
     <!-- Header -->
@@ -67,42 +68,63 @@
 
 
     <!-- Services Section -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nuestros Servicios</h2>
-                <p class="section-subtitle">Especialistas en cada detalle</p>
-            </div>
+    <div class="swiper services-swiper">
+        <div class="swiper-wrapper">
 
-            <div class="services-grid">
+            <div class="swiper-slide">
                 <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                        <path d="M19 3v4"/>
-                        <path d="M21 5h-4"/>
-                    </svg>
-                    <h3 class="service-title">Eliminacion de rayones</h3>
-                    <p class="service-description">Limpieza profunda exterior con productos especializados</p>
-                </div>
-
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-                    </svg>
-                    <h3 class="service-title">Protección Cerámica</h3>
-                    <p class="service-description">Recubrimiento cerámico de larga duración</p>
-                </div>
-
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                    </svg>
-                    <h3 class="service-title">Detailing Interior</h3>
-                    <p class="service-description">Limpieza completa del interior del vehículo</p>
+                    <h3>Eliminación de rayones</h3>
+                    <p>Corrección de pintura y eliminación de rayones superficiales</p>
                 </div>
             </div>
+
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <h3>Protección Cerámica</h3>
+                    <p>Recubrimiento cerámico de larga duración</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <h3>Detailing Interior</h3>
+                    <p>Limpieza completa del interior del vehículo</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <h3>Protección Cerámica</h3>
+                    <p>Recubrimiento cerámico de larga duración</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <h3>Detailing Interior</h3>
+                    <p>Limpieza completa del interior del vehículo</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <h3>Protección Cerámica</h3>
+                    <p>Recubrimiento cerámico de larga duración</p>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <h3>Detailing Interior</h3>
+                    <p>Limpieza completa del interior del vehículo</p>
+                </div>
+            </div>
+
         </div>
-    </section>
+
+        <!-- Paginación (los puntitos) -->
+        <div class="swiper-pagination"></div>
+    </div>
 
     <!-- Pricing Section -->
     <section id="planes" class="pricing">
@@ -399,6 +421,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
