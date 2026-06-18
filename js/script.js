@@ -60,7 +60,7 @@ const swiper = new Swiper('.services-swiper', {
     slidesPerView: 3,
     spaceBetween: 30,
     loop: true,
-    centeredSlides: true,
+    centeredSlides: false,
     speed: 800,
     
 
