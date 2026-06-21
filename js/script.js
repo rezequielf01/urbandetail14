@@ -77,6 +77,7 @@ const swiper = new Swiper('.services-swiper', {
 
     breakpoints: {
         0: { slidesPerView: 1.2 },
+        420: { slidesPerView: 1 },
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 }
     }
