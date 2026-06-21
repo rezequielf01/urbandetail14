@@ -734,9 +734,17 @@ body {
 
 /* Responsive Design */
 
+@media (max-width: 320px){
+  .services-swiper{
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 480px){
   .services-swiper{
     width: 100%;
+    margin-top: 0;
   }
 }
 
@@ -768,6 +776,10 @@ body {
 
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-swiper{
+    width: 80%;
   }
 
   .pricing-grid {
@@ -811,6 +823,10 @@ body {
 
   .hero-content p{
     width: 80%;
+  }
+
+  .services-swiper{
+    width: 90%;
   }
 }
 
