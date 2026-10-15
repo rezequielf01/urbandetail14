@@ -317,78 +317,67 @@
 
 
 <div class="seccion-interactiva">
-            <h2>¿Qué tipo de servicio estás buscando?</h2>
-            
-            <!-- Botones de Selección -->
-            <div class="botones-seleccion">
-                <button onclick="mostrarFormulario('reparacion')">
-                <strong>Quiero reparar mi auto</strong>
-                <span>Chapa y pintura, golpes y daños.</span>
-                </button>
-                
-                <button onclick="mostrarFormulario('detailing')">
-                <strong>Quiero mejorar y proteger mi auto</strong>
-                <span>Detailing, pulido y tratamientos.</span>
-                </button>
-            </div>
-
-            <!-- Formulario 1: Reparación (Oculto por defecto) -->
-            <div id="form-reparacion" class="formulario-dinamico" style="display:none;">
-                <h3>Presupuesto de Chapa y Pintura</h3>
-                <input type="text" id="rep-nombre" placeholder="Tu Nombre" required>
-                <input type="text" id="rep-auto" placeholder="Modelo y Año del Auto" required>
-                <input type="text" id="rep-pieza" placeholder="¿Qué pieza/s hay que reparar?" required>
-                <textarea id="rep-danio" placeholder="Contanos brevemente qué daño tiene..."></textarea>
-                <button onclick="enviarWhatsAppReparacion()">Solicitar Presupuesto por WhatsApp</button>
-            </div>
-
-            <!-- Formulario 2: Detailing (Oculto por defecto) -->
-            <div id="form-detailing" class="formulario-dinamico" style="display:none;">
-                <h3>Consulta de Estética Vehicular</h3>
-                <input type="text" id="det-nombre" placeholder="Tu Nombre" required>
-                <input type="text" id="det-auto" placeholder="Modelo y Año del Auto" required>
-                <select id="det-plan">
-                <option value="No estoy seguro">No estoy seguro, quiero asesoramiento</option>
-                <option value="Plan Básico">Plan Básico (\$80.000)</option>
-                <option value="Plan Profesional">Plan Profesional (\$180.000)</option>
-                <option value="Plan Premium">Plan Premium (\$290.000)</option>
-                </select>
-                <textarea id="det-estado" placeholder="¿Cómo está la pintura? (Rayas de lavado, opaca, etc.)"></textarea>
-                <button onclick="enviarWhatsAppDetailing()">Consultar por WhatsApp</button>
-            </div>
-        </div>
-
-    <script>
-    // Función para alternar los formularios
-    function mostrarFormulario(tipo) {
-    document.getElementById('form-reparacion').style.display = tipo === 'reparacion' ? 'block' : 'none';
-    document.getElementById('form-detailing').style.display = tipo === 'detailing' ? 'block' : 'none';
-    }
-
-    // Envío a WhatsApp de Reparación
-    function enviarWhatsAppReparacion() {
-    const nombre = document.getElementById('rep-nombre').value;
-    const auto = document.getElementById('rep-auto').value;
-    const pieza = document.getElementById('rep-pieza').value;
-    const danio = document.getElementById('rep-danio').value;
+  <h2>¿Qué tipo de servicio estás buscando?</h2>
+  
+  <!-- Botones de Selección Principal -->
+  <div class="botones-seleccion">
+    <button id="btn-reparacion" onclick="mostrarFormulario('reparacion')">
+      <strong>Quiero reparar mi auto</strong>
+      <span>Chapa y pintura, golpes y daños.</span>
+    </button>
     
-    const mensaje = `¡Hola Urban Garage! Quiero solicitar un presupuesto de Chapa y Pintura. Mi nombre es ${nombre}, tengo un ${auto}. Necesito reparar: ${pieza}. Detalle del daño: ${danio}.`;
-    const url = `https://wa.me{encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-    }
+    <button id="btn-detailing" onclick="mostrarFormulario('detailing')">
+      <strong>Quiero mejorar y proteger mi auto</strong>
+      <span>Detailing, pulido y tratamientos.</span>
+    </button>
+  </div>
 
-    // Envío a WhatsApp de Detailing
-    function enviarWhatsAppDetailing() {
-    const nombre = document.getElementById('det-nombre').value;
-    const auto = document.getElementById('det-auto').value;
-    const plan = document.getElementById('det-plan').value;
-    const estado = document.getElementById('det-estado').value;
+  <!-- Formulario A: Reparación -->
+  <div id="form-reparacion" class="formulario-dinamico" style="display:none;">
+    <h3>Presupuesto de Chapa y Pintura</h3>
     
-    const mensaje = `¡Hola Urban Garage! Quiero consultar por un tratamiento de Estética. Mi nombre es ${nombre}, tengo un ${auto}. Me interesa el ${plan}. El estado de la pintura es: ${estado}.`;
-    const url = `https://wa.me{encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-    }
-    </script>
+    <input type="text" id="rep-nombre" placeholder="Tu Nombre" required>
+    <input type="text" id="rep-auto" placeholder="Modelo y Año del Auto" required>
+    
+    <!-- Listado de Checkboxes de piezas -->
+    <div class="grupo-piezas">
+      <label class="label-seccion">¿Qué pieza/s hay que reparar? (Seleccioná una o varias)</label>
+      <div class="grid-piezas">
+        <label class="checkbox-container"><input type="checkbox" name="piezas" value="Paragolpes"> Paragolpes</label>
+        <label class="checkbox-container"><input type="checkbox" name="piezas" value="Guardabarros"> Guardabarros</label>
+        <label class="checkbox-container"><input type="checkbox" name="piezas" value="Puertas"> Puertas</label>
+        <label class="checkbox-container"><input type="checkbox" name="piezas" value="Capó"> Capó</label>
+        <label class="checkbox-container"><input type="checkbox" name="piezas" value="Techo"> Techo</label>
+        <label class="checkbox-container"><input type="checkbox" name="piezas" value="Tapa de Baúl"> Tapa de Baúl</label>
+        <label class="checkbox-container"><input type="checkbox" name="piezas" value="Marcos Interiores"> Marcos Interiores</label>
+      </div>
+    </div>
+
+    <textarea id="rep-danio" placeholder="Contanos brevemente qué daño tiene (raspones, abolladura profunda, choque, etc.)..."></textarea>
+
+    <button onclick="enviarWhatsAppReparacion()">Solicitar Presupuesto por WhatsApp</button>
+  </div>
+
+  <!-- Formulario B: Detailing -->
+  <div id="form-detailing" class="formulario-dinamico" style="display:none;">
+    <h3>Consulta de Estética Vehicular</h3>
+    
+    <input type="text" id="det-nombre" placeholder="Tu Nombre" required>
+    <input type="text" id="det-auto" placeholder="Modelo y Año del Auto" required>
+    
+    <label class="label-seccion">¿Qué tratamiento te interesa?</label>
+    <select id="det-plan">
+      <option value="No estoy seguro, requiero asesoramiento">No estoy seguro, quiero asesoramiento técnico</option>
+      <option value="Tratamiento Acrílico">Tratamiento Acrílico (Protección intermedia)</option>
+      <option value="Tratamiento Cerámico">Tratamiento Cerámico (Brillo extremo y dureza)</option>
+      <option value="Limpieza de Tapizados / Detailing Interior">Detailing Interior (Limpieza profunda)</option>
+      <option value="Corrección de laca / Pulido Multietapa">Pulido completo (Eliminación de rayas de lavado)</option>
+    </select>
+    
+    <button onclick="enviarWhatsAppDetailing()">Consultar por WhatsApp</button>
+  </div>
+</div>
+
 
     <!-- Pricing Section -->
     <section id="planes" class="pricing">
@@ -648,6 +637,106 @@
             </div>
         </div>
     </footer>
+
+
+    <script>
+        // ==========================================
+        // LOGICA INTERACTIVA - URBAN GARAGE
+        // ==========================================
+
+        // ==========================================
+// LOGICA INTERACTIVA - URBAN GARAGE (URL SEGURA)
+// ==========================================
+
+// Controlar el cambio de formularios y clases activas en los botones principales
+function mostrarFormulario(tipo) {
+  const formRep = document.getElementById('form-reparacion');
+  const formDet = document.getElementById('form-detailing');
+  const btnRep = document.getElementById('btn-reparacion');
+  const btnDet = document.getElementById('btn-detailing');
+
+  if (tipo === 'reparacion') {
+    formRep.style.display = 'block';
+    formDet.style.display = 'none';
+    btnRep.classList.add('activo');
+    btnDet.classList.remove('activo');
+  } else {
+    formRep.style.display = 'none';
+    formDet.style.display = 'block';
+    btnRep.classList.remove('activo');
+    btnDet.classList.add('activo');
+  }
+}
+
+// Procesar y enviar datos de Chapa y Pintura a WhatsApp
+function enviarWhatsAppReparacion() {
+  const nombre = document.getElementById('rep-nombre').value.trim();
+  const auto = document.getElementById('rep-auto').value.trim();
+  const danio = document.getElementById('rep-danio').value.trim();
+  
+  // Obtener las piezas marcadas en el listado de checkboxes
+  const checkboxes = document.querySelectorAll('input[name="piezas"]:checked');
+  let piezasSeleccionadas = [];
+  checkboxes.forEach(function(cb) { 
+    piezasSeleccionadas.push(cb.value); 
+  });
+  
+  // Validación de campos obligatorios
+  if (!nombre || !auto || piezasSeleccionadas.length === 0) {
+    alert("Por favor, ingresá tu nombre, el auto y marcá al menos una pieza a reparar.");
+    return;
+  }
+
+  const piezasTexto = piezasSeleccionadas.join(", ");
+  
+  // Armado del mensaje limpio
+  var mensaje = "¡Hola Urban Garage! Quiero solicitar un presupuesto de Chapa y Pintura.\n\n" +
+                "• *Nombre:* " + nombre + "\n" +
+                "• *Auto:* " + auto + "\n" +
+                "• *Piezas a reparar:* " + piezasTexto + "\n";
+                
+  if (danio) {
+    mensaje += "• *Detalle del daño:* " + danio + "\n";
+  }
+  
+  mensaje += "\n[Te adjunto fotos del daño en el siguiente mensaje]";
+
+  // SOLUCIÓN DEFINITIVA: Constructor de URL nativo para evitar deformaciones en el dominio
+  var baseUrl = "https://wa.me";
+  var params = new URLSearchParams();
+  params.append("text", mensaje);
+  
+  // Esto genera de forma matemática y perfecta la estructura "https://wa.me?text=..."
+  window.location.href = baseUrl + "?" + params.toString();
+}
+
+// Procesar y enviar datos de Estética / Detailing a WhatsApp
+function enviarWhatsAppDetailing() {
+  const nombre = document.getElementById('det-nombre').value.trim();
+  const auto = document.getElementById('det-auto').value.trim();
+  const plan = document.getElementById('det-plan').value;
+  
+  // Validación de campos obligatorios
+  if (!nombre || !auto) {
+    alert("Por favor, completá tu nombre y el modelo de tu vehículo.");
+    return;
+  }
+
+  // Armado del mensaje
+  var mensaje = "¡Hola Urban Garage! Quiero consultar por un tratamiento de Estética.\n\n" +
+                "• *Nombre:* " + nombre + "\n" +
+                "• *Auto:* " + auto + "\n" +
+                "• *Servicio de interés:* " + plan;
+
+  // SOLUCIÓN DEFINITIVA: Constructor de URL nativo
+  var baseUrl = "https://wa.me";
+  var params = new URLSearchParams();
+  params.append("text", mensaje);
+  
+  window.location.href = baseUrl + "?" + params.toString();
+}
+
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

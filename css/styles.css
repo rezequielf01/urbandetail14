@@ -28,9 +28,10 @@
 }
 
 /* ==========================================
-   SECCIÓN INTERACTIVA - URBAN GARAGE
+   DISEÑO VISUAL (CSS) - URBAN GARAGE
    ========================================== */
 
+/* Contenedor Principal */
 .seccion-interactiva {
     max-width: 900px;
     margin: 60px auto;
@@ -59,7 +60,7 @@
 
 .botones-seleccion button {
     flex: 1;
-    background: #1a1a1a; /* Fondo gris oscuro premium */
+    background: #1a1a1a;
     border: 2px solid #333333;
     border-radius: 12px;
     padding: 30px 20px;
@@ -86,16 +87,18 @@
     line-height: 1.4;
 }
 
-/* Efecto Hover (Al pasar el cursor) */
-.botones-seleccion button:hover {
-    border-color: var(--color-primary);
+/* Efecto Hover y Estado Activo */
+.botones-seleccion button:hover, 
+.botones-seleccion button.activo {
+    border-color: #00e676;
     background: #222222;
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(150, 5, 19, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 230, 118, 0.15);
 }
 
-.botones-seleccion button:hover strong {
-    color: var(--color-primary);
+.botones-seleccion button:hover strong,
+.botones-seleccion button.activo strong {
+    color: #00e676;
 }
 
 /* --- ESTILOS DE LOS FORMULARIOS DINÁMICOS --- */
@@ -107,7 +110,7 @@
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    animation: fadeIn 0.4s ease-out; /* Animación de aparición suave */
+    animation: fadeIn 0.4s ease-out;
 }
 
 .formulario-dinamico h3 {
@@ -117,9 +120,10 @@
     font-weight: 600;
     border-bottom: 2px solid #2a2a2a;
     padding-bottom: 12px;
+    text-align: left;
 }
 
-/* Inputs, Selects y Textareas */
+/* Campos de entrada, selects y textareas */
 .formulario-dinamico input[type="text"],
 .formulario-dinamico select,
 .formulario-dinamico textarea {
@@ -140,14 +144,13 @@
     color: #666666;
 }
 
-/* Enfoque de los campos */
 .formulario-dinamico input:focus,
 .formulario-dinamico select:focus,
 .formulario-dinamico textarea:focus {
     outline: none;
-    border-color: var(--color-primary);
+    border-color: #00e676;
     background: #262626;
-    box-shadow: 0 0 8px rgba(150, 5, 19, 0.4);
+    box-shadow: 0 0 8px rgba(0, 230, 118, 0.2);
 }
 
 .formulario-dinamico textarea {
@@ -155,10 +158,59 @@
     resize: vertical;
 }
 
-/* --- BOTÓN DE ENVÍO A WHATSAPP --- */
+/* --- CONTENEDORES INTERNOS (PIEZAS) --- */
+.label-seccion {
+    display: block;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #cccccc;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.grupo-piezas {
+    margin-bottom: 25px;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+    text-align: left;
+}
+
+.grid-piezas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #ffffff;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #00e676;
+    cursor: pointer;
+}
+
+.checkbox-container:hover {
+    color: #00e676;
+}
+
+/* --- BOTÓN DE ENVIAR A WHATSAPP --- */
 .formulario-dinamico button {
     width: 100%;
-    background: var(--color-primary); /* Verde oficial de WhatsApp */
+    background: #25d366;
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -167,42 +219,37 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(150, 5, 19, 0.4);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .formulario-dinamico button:hover {
-    background: var(--color-primary);
+    background: #20ba59;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(150, 5, 19, 0.4);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
-/* --- ANIMACIÓN --- */
+/* Animación de entrada suave */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- ADAPTACIÓN PARA CELULARES (RESPONSIVE) --- */
+/* --- DISEÑO ADAPTABLE (MÓVILES) --- */
 @media (max-width: 600px) {
     .botones-seleccion {
         flex-direction: column;
         gap: 16px;
     }
-    
     .formulario-dinamico {
         padding: 24px;
     }
-    
     .seccion-interactiva h2 {
         font-size: 1.6rem;
     }
-} 
+    .grid-piezas {
+        grid-template-columns: 1fr;
+    }
+}
 
 
 
