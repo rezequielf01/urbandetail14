@@ -308,12 +308,87 @@
             </article>
         </div>
 
-
     </div>
+
 
     <!-- Paginación -->
     <div class="swiper-pagination"></div>
 </div>
+
+
+<div class="seccion-interactiva">
+            <h2>¿Qué tipo de servicio estás buscando?</h2>
+            
+            <!-- Botones de Selección -->
+            <div class="botones-seleccion">
+                <button onclick="mostrarFormulario('reparacion')">
+                <strong>Quiero reparar mi auto</strong>
+                <span>Chapa y pintura, golpes y daños.</span>
+                </button>
+                
+                <button onclick="mostrarFormulario('detailing')">
+                <strong>Quiero mejorar y proteger mi auto</strong>
+                <span>Detailing, pulido y tratamientos.</span>
+                </button>
+            </div>
+
+            <!-- Formulario 1: Reparación (Oculto por defecto) -->
+            <div id="form-reparacion" class="formulario-dinamico" style="display:none;">
+                <h3>Presupuesto de Chapa y Pintura</h3>
+                <input type="text" id="rep-nombre" placeholder="Tu Nombre" required>
+                <input type="text" id="rep-auto" placeholder="Modelo y Año del Auto" required>
+                <input type="text" id="rep-pieza" placeholder="¿Qué pieza/s hay que reparar?" required>
+                <textarea id="rep-danio" placeholder="Contanos brevemente qué daño tiene..."></textarea>
+                <button onclick="enviarWhatsAppReparacion()">Solicitar Presupuesto por WhatsApp</button>
+            </div>
+
+            <!-- Formulario 2: Detailing (Oculto por defecto) -->
+            <div id="form-detailing" class="formulario-dinamico" style="display:none;">
+                <h3>Consulta de Estética Vehicular</h3>
+                <input type="text" id="det-nombre" placeholder="Tu Nombre" required>
+                <input type="text" id="det-auto" placeholder="Modelo y Año del Auto" required>
+                <select id="det-plan">
+                <option value="No estoy seguro">No estoy seguro, quiero asesoramiento</option>
+                <option value="Plan Básico">Plan Básico (\$80.000)</option>
+                <option value="Plan Profesional">Plan Profesional (\$180.000)</option>
+                <option value="Plan Premium">Plan Premium (\$290.000)</option>
+                </select>
+                <textarea id="det-estado" placeholder="¿Cómo está la pintura? (Rayas de lavado, opaca, etc.)"></textarea>
+                <button onclick="enviarWhatsAppDetailing()">Consultar por WhatsApp</button>
+            </div>
+        </div>
+
+    <script>
+    // Función para alternar los formularios
+    function mostrarFormulario(tipo) {
+    document.getElementById('form-reparacion').style.display = tipo === 'reparacion' ? 'block' : 'none';
+    document.getElementById('form-detailing').style.display = tipo === 'detailing' ? 'block' : 'none';
+    }
+
+    // Envío a WhatsApp de Reparación
+    function enviarWhatsAppReparacion() {
+    const nombre = document.getElementById('rep-nombre').value;
+    const auto = document.getElementById('rep-auto').value;
+    const pieza = document.getElementById('rep-pieza').value;
+    const danio = document.getElementById('rep-danio').value;
+    
+    const mensaje = `¡Hola Urban Garage! Quiero solicitar un presupuesto de Chapa y Pintura. Mi nombre es ${nombre}, tengo un ${auto}. Necesito reparar: ${pieza}. Detalle del daño: ${danio}.`;
+    const url = `https://wa.me{encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+    }
+
+    // Envío a WhatsApp de Detailing
+    function enviarWhatsAppDetailing() {
+    const nombre = document.getElementById('det-nombre').value;
+    const auto = document.getElementById('det-auto').value;
+    const plan = document.getElementById('det-plan').value;
+    const estado = document.getElementById('det-estado').value;
+    
+    const mensaje = `¡Hola Urban Garage! Quiero consultar por un tratamiento de Estética. Mi nombre es ${nombre}, tengo un ${auto}. Me interesa el ${plan}. El estado de la pintura es: ${estado}.`;
+    const url = `https://wa.me{encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+    }
+    </script>
 
     <!-- Pricing Section -->
     <section id="planes" class="pricing">
