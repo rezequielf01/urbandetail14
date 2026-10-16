@@ -359,175 +359,178 @@
   </div>
 
   <!-- Formulario B: Detailing -->
-  <div id="form-detailing" class="formulario-dinamico" style="display:none;">
-    <h3>Consulta de Estética Vehicular</h3>
-    
-    <input type="text" id="det-nombre" placeholder="Tu Nombre" required>
-    <input type="text" id="det-auto" placeholder="Modelo y Año del Auto" required>
-    
-    <label class="label-seccion">¿Qué tratamiento te interesa?</label>
-    <select id="det-plan">
-      <option value="No estoy seguro, requiero asesoramiento">No estoy seguro, quiero asesoramiento técnico</option>
-      <option value="Tratamiento Acrílico">Tratamiento Acrílico (Protección intermedia)</option>
-      <option value="Tratamiento Cerámico">Tratamiento Cerámico (Brillo extremo y dureza)</option>
-      <option value="Limpieza de Tapizados / Detailing Interior">Detailing Interior (Limpieza profunda)</option>
-      <option value="Corrección de laca / Pulido Multietapa">Pulido completo (Eliminación de rayas de lavado)</option>
-    </select>
-    
-    <button onclick="enviarWhatsAppDetailing()">Consultar por WhatsApp</button>
-  </div>
+    <div id="form-detailing" class="formulario-dinamico" style="display:none;">
+        <h3>Consulta de Estética Vehicular</h3>
+        
+        <input type="text" id="det-nombre" placeholder="Tu Nombre" required>
+        <input type="text" id="det-auto" placeholder="Modelo y Año del Auto" required>
+        
+        <label class="label-seccion">¿Qué tratamiento te interesa?</label>
+        <select id="det-plan">
+            <option value="No estoy seguro, requiero asesoramiento">No estoy seguro, quiero asesoramiento técnico</option>
+            <option value="Tratamiento Acrílico">Tratamiento Acrílico (Protección intermedia)</option>
+            <option value="Tratamiento Cerámico">Tratamiento Cerámico (Brillo extremo y dureza)</option>
+            <option value="Limpieza de Tapizados / Detailing Interior">Detailing Interior (Limpieza profunda)</option>
+            <option value="Corrección de laca / Pulido Multietapa">Pulido completo (Eliminación de rayas de lavado)</option>
+            <!-- Nuevos servicios añadidos -->
+            <option value="Polarizado de Vidrios">Polarizado de vidrios</option>
+            <option value="Restauración / Ploteo de Ópticas">Restauración y ploteo de ópticas</option>
+            <option value="Restauración / Pintura de Llantas">Restauración de llantas</option>
+            <option value="Preparación para Pre-Venta">Preparación estética para pre-venta</option>
+            <option value="Detailing / Limpieza de Motor">Detailing de motor profundo</option>
+        </select>
+        
+        <button onclick="enviarWhatsAppDetailing()">Consultar por WhatsApp</button>
+    </div>
 </div>
 
 
     <!-- Pricing Section -->
     <section id="planes" class="pricing">
-        <div class="container">
-            
-            <div class="section-header">
-                <h2 class="section-title">Planes y Precios</h2>
-                <p class="section-subtitle">Elige el plan que mejor se adapte a tu vehículo</p>
+    <div class="container">
+        
+        <div class="section-header">
+            <h2 class="section-title">Planes y Precios</h2>
+            <p class="section-subtitle">Elige el plan que mejor se adapte a tu vehículo</p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Plan Básico -->
+            <div class="pricing-card">
+                <div class="pricing-content">
+                    <h3 class="pricing-name">Básico</h3>
+                    <p class="pricing-description">Perfecto para mantenimiento regular</p>
+                    
+                    <div class="pricing-price-container">
+                        <span class="old-price">$160.000</span>
+                        <div class="discount-badge">50% OFF</div>
+                        <span class="pricing-price">$80.000</span>
+                        <span class="pricing-period">por servicio</span>
+                    </div>
+
+                    <!-- MODIFICADO: Botón interactivo directo -->
+                    <button onclick="enviarPlanWhatsApp('Básico', '$80.000')" class="btn btn-outline-full" style="width: 100%; border: 1px solid currentColor; padding: 12px; border-radius: 6px; cursor: pointer; background: transparent; color: inherit; font-weight: 600;">Reservar Plan</button>
+
+                    <div class="pricing-features">
+                        <p class="features-title">Incluye:</p>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Pulido, abrillantado y encerado</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Pulido de opticas</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Lavado exterior con productos especiales</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="pricing-grid">
-                <!-- Plan Básico -->
-                <div class="pricing-card">
-                    <div class="pricing-content">
-                        <h3 class="pricing-name">Básico</h3>
-                        <p class="pricing-description">Perfecto para mantenimiento regular</p>
-                        
-                        <div class="pricing-price-container">
-                            <span class="old-price">$160.000</span>
+            <!-- Plan Profesional (Popular) -->
+            <div class="pricing-card pricing-card-popular">
+                <span class="popular-badge">Recomendado</span>
+                <div class="pricing-content">
+                    <h3 class="pricing-name">Profesional</h3>
+                    <p class="pricing-description">Nuestro servicio más solicitado</p>
+                    
+                    <div class="pricing-price-container">
+                        <span class="old-price">$280.000</span>
+                        <div class="discount-badge">35% OFF</div>
+                        <span class="pricing-price">$180.000</span>
+                        <span class="pricing-period">por servicio</span>
+                    </div>
 
-                            <div class="discount-badge">50% OFF</div>
+                    <!-- MODIFICADO: Botón interactivo directo -->
+                    <button onclick="enviarPlanWhatsApp('Profesional', '$180.000')" class="btn btn-primary-full" style="width: 100%; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: 600;">Reservar Ahora</button>
 
-                            <span class="pricing-price">$80.000</span>
-                            <span class="pricing-period">por servicio</span>
+                    <div class="pricing-features">
+                        <p class="features-title">Incluye:</p>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Todo del plan Básico</span>
                         </div>
-
-                        <a href="#contacto" class="btn btn-outline-full">Conocer Más</a>
-
-                        <div class="pricing-features">
-                            <p class="features-title">Incluye:</p>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Pulido, abrillantado y encerado</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Pulido de opticas</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Lavado exterior con productos especiales</span>
-                            </div>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Limpieza interior basica</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Restauracion de llantas/taza</span>
+                        </div>  
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Aromantizante premium</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Plan Profesional (Popular) -->
-                <div class="pricing-card pricing-card-popular">
-                    <span class="popular-badge">Recomendado</span>
-                    <div class="pricing-content">
-                        <h3 class="pricing-name">Profesional</h3>
-                        <p class="pricing-description">Nuestro servicio más solicitado</p>
-                        
-                        <div class="pricing-price-container">
-                            <span class="old-price">$280.000</span>
+            <!-- Plan Premium -->
+            <div class="pricing-card">
+                <div class="pricing-content">
+                    <h3 class="pricing-name">Premium</h3>
+                    <p class="pricing-description">Tratamiento completo de lujo</p>
+                    
+                    <div class="pricing-price-container">
+                        <span class="old-price">$350.000</span>
+                        <div class="discount-badge">15% OFF</div>
+                        <span class="pricing-price">$290.000</span>
+                        <span class="pricing-period">por servicio</span>
+                    </div> 
 
-                            <div class="discount-badge">35% OFF</div>
+                    <!-- MODIFICADO: Botón interactivo directo -->
+                    <button onclick="enviarPlanWhatsApp('Premium', '$290.000')" class="btn btn-outline-full" style="width: 100%; border: 1px solid currentColor; padding: 12px; border-radius: 6px; cursor: pointer; background: transparent; color: inherit; font-weight: 600;">Reservar Plan</button>
 
-                            <span class="pricing-price">$180.000</span>
-                            <span class="pricing-period">por servicio</span>
+                    <div class="pricing-features">
+                        <p class="features-title">Incluye:</p>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Todo del plan Profesional</span>
                         </div>
-
-                        <a href="#contacto" class="btn btn-primary-full">Reservar Ahora</a>
-
-                        <div class="pricing-features">
-                            <p class="features-title">Incluye:</p>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Todo del plan Básico</span>
-                            </div>
-                            
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Limpieza interior basica</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Restauracion de llantas/taza</span>
-                            </div>  
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Aromantizante premium</span>
-                            </div>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Detailing interior profundo</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Plan Premium -->
-                <div class="pricing-card">
-                    <div class="pricing-content">
-                        <h3 class="pricing-name">Premium</h3>
-                        <p class="pricing-description">Tratamiento completo de lujo</p>
-                        
-                        <div class="pricing-price-container">
-                            <span class="old-price">$350.000</span>
-
-                            <div class="discount-badge">15% OFF</div>
-
-                            <span class="pricing-price">$290.000</span>
-                            <span class="pricing-period">por servicio</span>
-                        </div> 
-
-                        <a href="#contacto" class="btn btn-outline-full">Conocer Más</a>
-
-                        <div class="pricing-features">
-                            <p class="features-title">Incluye:</p>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Todo del plan Profesional</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Detailing interior profundo</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Limpieza de motor</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>Ploteo de faros y opticas (opcional)</span>
-                            </div>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                            <span>Limpieza de motor</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Ploteo de faros y opticas (opcional)</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Testimonials Section -->
     <!-- <section id="trabajos" class="testimonials">
@@ -637,7 +640,7 @@
     </footer>
 
 
-    <script>
+   <script>
 // ==========================================
 // CONFIGURACIÓN GLOBAL - URBAN GARAGE
 // ==========================================
@@ -729,7 +732,7 @@ function enviarWhatsAppDetailing() {
     return;
   }
 
-  // Armado del mensaje
+  // Armado del mensaje (Listo para procesar cualquiera de las nuevas opciones elegidas en el HTML)
   var mensaje = "¡Hola Urban Garage! Quiero consultar por un tratamiento de Estética.\n\n" +
                 "• *Nombre:* " + nombre + "\n" +
                 "• *Auto:* " + auto + "\n" +
@@ -753,8 +756,32 @@ function enviarWhatsAppDetailing() {
   document.body.removeChild(linkVirtual);
 }
 
+// NUEVA FUNCIÓN AGREGADA: Procesa las solicitudes directas de la grilla de precios
+function enviarPlanWhatsApp(nombrePlan, precioPlan) {
+  var mensaje = "¡Hola Urban Garage! Estuve viendo la página web y me interesa contratar el siguiente servicio:\n\n" +
+                "• *Plan Elegido:* Combo " + nombrePlan + "\n" +
+                "• *Precio de la web:* " + precioPlan + " por servicio\n\n" +
+                "¿Me podrían indicar los turnos disponibles para esta semana?";
 
-    </script>
+  // Constructor de URL nativo idéntico a tus funciones existentes
+  var baseUrl = "https://wa.me/" + TELEFONO_URBAN;
+  var params = new URLSearchParams();
+  params.append("text", mensaje);
+  var linkFinal = baseUrl + "?" + params.toString();
+
+  // Redirección por enlace virtual para máxima compatibilidad con navegadores
+  var linkVirtual = document.createElement("a");
+  linkVirtual.href = linkFinal;
+  linkVirtual.target = "_blank";
+  linkVirtual.rel = "noopener noreferrer";
+  
+  document.body.appendChild(linkVirtual);
+  linkVirtual.click();
+  document.body.removeChild(linkVirtual);
+}
+</script>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
