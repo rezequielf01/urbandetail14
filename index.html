@@ -640,15 +640,15 @@
 
 
     <script>
-        // ==========================================
-        // LOGICA INTERACTIVA - URBAN GARAGE
-        // ==========================================
+// ==========================================
+// CONFIGURACIÓN GLOBAL - URBAN GARAGE
+// ==========================================
+var TELEFONO_URBAN = "5491171508740"; 
 
-        // ==========================================
+// ==========================================
 // LOGICA INTERACTIVA - URBAN GARAGE (URL SEGURA)
 // ==========================================
 
-// Controlar el cambio de formularios y clases activas en los botones principales
 function mostrarFormulario(tipo) {
   const formRep = document.getElementById('form-reparacion');
   const formDet = document.getElementById('form-detailing');
@@ -701,13 +701,22 @@ function enviarWhatsAppReparacion() {
   
   mensaje += "\n[Te adjunto fotos del daño en el siguiente mensaje]";
 
-  // SOLUCIÓN DEFINITIVA: Constructor de URL nativo para evitar deformaciones en el dominio
-  var baseUrl = "https://wa.me";
+  // Constructor de URL nativo
+  var baseUrl = "https://wa.me/" + TELEFONO_URBAN;
   var params = new URLSearchParams();
   params.append("text", mensaje);
+  var linkFinal = baseUrl + "?" + params.toString();
+
+  // SOLUCIÓN COMPATIBLE: Creamos un enlace <a> virtual idéntico a tu botón HTML
+  var linkVirtual = document.createElement("a");
+  linkVirtual.href = linkFinal;
+  linkVirtual.target = "_blank";
+  linkVirtual.rel = "noopener noreferrer";
   
-  // Esto genera de forma matemática y perfecta la estructura "https://wa.me?text=..."
-  window.location.href = baseUrl + "?" + params.toString();
+  // Agregamos el elemento al documento de forma invisible y lo clickeamos
+  document.body.appendChild(linkVirtual);
+  linkVirtual.click();
+  document.body.removeChild(linkVirtual);
 }
 
 // Procesar y enviar datos de Estética / Detailing a WhatsApp
@@ -728,13 +737,24 @@ function enviarWhatsAppDetailing() {
                 "• *Auto:* " + auto + "\n" +
                 "• *Servicio de interés:* " + plan;
 
-  // SOLUCIÓN DEFINITIVA: Constructor de URL nativo
-  var baseUrl = "https://wa.me";
+  // Constructor de URL nativo
+  var baseUrl = "https://wa.me/" + TELEFONO_URBAN;
   var params = new URLSearchParams();
   params.append("text", mensaje);
+  var linkFinal = baseUrl + "?" + params.toString();
+
+  // SOLUCIÓN COMPATIBLE: Creamos un enlace <a> virtual idéntico a tu botón HTML
+  var linkVirtual = document.createElement("a");
+  linkVirtual.href = linkFinal;
+  linkVirtual.target = "_blank";
+  linkVirtual.rel = "noopener noreferrer";
   
-  window.location.href = baseUrl + "?" + params.toString();
+  // Agregamos el elemento al documento de forma invisible y lo clickeamos
+  document.body.appendChild(linkVirtual);
+  linkVirtual.click();
+  document.body.removeChild(linkVirtual);
 }
+
 
     </script>
 
