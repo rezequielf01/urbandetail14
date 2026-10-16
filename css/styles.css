@@ -90,15 +90,15 @@
 /* Efecto Hover y Estado Activo */
 .botones-seleccion button:hover, 
 .botones-seleccion button.activo {
-    border-color: #00e676;
+    border-color: var(--color-primary);
     background: #222222;
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 230, 118, 0.15);
+    box-shadow: 0 8px 25px rgba(145, 2, 17, 0.4);
 }
 
 .botones-seleccion button:hover strong,
 .botones-seleccion button.activo strong {
-    color: #00e676;
+    color: var(--color-primary);
 }
 
 /* --- ESTILOS DE LOS FORMULARIOS DINÁMICOS --- */
@@ -148,9 +148,9 @@
 .formulario-dinamico select:focus,
 .formulario-dinamico textarea:focus {
     outline: none;
-    border-color: #00e676;
+    border-color: var(--color-primary);
     background: #262626;
-    box-shadow: 0 0 8px rgba(0, 230, 118, 0.2);
+    box-shadow: 0 0 8px var(--color-primary)
 }
 
 .formulario-dinamico textarea {
@@ -199,18 +199,18 @@
 .checkbox-container input[type="checkbox"] {
     width: 18px;
     height: 18px;
-    accent-color: #00e676;
+    accent-color: var(--color-primary);
     cursor: pointer;
 }
 
 .checkbox-container:hover {
-    color: #00e676;
+    color: var(--color-primary);
 }
 
 /* --- BOTÓN DE ENVIAR A WHATSAPP --- */
 .formulario-dinamico button {
     width: 100%;
-    background: #25d366;
+    background: var(--color-primary);
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -219,13 +219,13 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 4px 15px rgba(145, 2, 17, 0.4);
 }
 
 .formulario-dinamico button:hover {
-    background: #20ba59;
+    background: var(--color-primary);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 6px 20px rgba(145, 2, 17, 0.4);
 }
 
 /* Animación de entrada suave */
