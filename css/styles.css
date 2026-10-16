@@ -906,6 +906,7 @@ body {
   background-color: var(--color-card);
   border-top: 1px solid var(--color-border);
   padding: 3rem 0;
+  padding-bottom: 0;
 }
 
 .footer-grid {
@@ -982,6 +983,10 @@ body {
 
 .footer-link:hover {
   color: var(--color-primary);
+}
+
+.footer-map-container{
+  margin-bottom: 10px;
 }
 
 /* Responsive Design */
